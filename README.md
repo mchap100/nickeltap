@@ -2,7 +2,6 @@
 
 
 ## Table of Contents
-- [Before You Start](#before-you-start)
 - [PART 1: THE FOUNDATION](#part-1-the-foundation)
   - [Step 1: Create Your Replit Project](#step-1-create-your-replit-project)
   - [Step 2: Create the HTML Structure](#step-2-create-the-html-structure)
