@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>NICKELTAP - Settle the Nickelback Debate</title>
+    <meta name="description" content="A single-screen progressive web app that settles the Nickelback debate by tapping. Pick Team Love or Team Hate and tap the Chad Nickel button!">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1E1E2E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="NICKELTAP">
+    
+    <!-- Prevent zooming and scrolling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header with sound toggle -->
+        <header class="header">
+            <button id="soundToggle" class="sound-toggle" aria-label="Toggle sound">
+                <span class="sound-icon">🔊</span>
+            </button>
+        </header>
 
+        <!-- Main content area -->
+        <main class="main-content">
+            <!-- Global counters -->
+            <div class="global-counters">
+                <div class="counter love-counter">
+                    <div class="counter-label">Team Love</div>
+                    <div class="counter-value" id="globalLoveCount">0</div>
+                </div>
+                <div class="counter hate-counter">
+                    <div class="counter-label">Team Hate</div>
+                    <div class="counter-value" id="globalHateCount">0</div>
+                </div>
+            </div>
+
+            <!-- Team selection -->
+            <div class="team-selection">
+                <button id="teamLove" class="team-button love-button">Team Love</button>
+                <button id="teamHate" class="team-button hate-button">Team Hate</button>
+            </div>
+
+            <!-- Chad Nickel Button -->
+            <div class="nickel-container">
+                <button id="chadNickel" class="chad-nickel-button" disabled>
+                    <div class="nickel-inner">
+                        <span class="chad-text">CHAD</span>
+                    </div>
+                </button>
+                <div class="tap-effects" id="tapEffects"></div>
+            </div>
+
+            <!-- Personal stats -->
+            <div class="personal-stats">
+                <div class="stat">
+                    <div class="stat-label">Session</div>
+                    <div class="stat-value" id="sessionCount">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Lifetime</div>
+                    <div class="stat-value" id="lifetimeCount">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Best Streak</div>
+                    <div class="stat-value" id="bestStreak">0</div>
+                </div>
+            </div>
+
+            <!-- Current streak and stage messages -->
+            <div id="streakMessage" class="streak-message"></div>
+            <div id="stageMessage" class="stage-message"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <button id="shareButton" class="footer-link">Share</button>
+            <span class="footer-separator">•</span>
+            <a href="#" class="footer-link">Terms</a>
+            <span class="footer-separator">•</span>
+            <a href="#" class="footer-link">Privacy</a>
+            <span class="footer-separator">•</span>
+            <a href="#" class="footer-link">Help</a>
+        </footer>
+    </div>
+
+    <!-- Audio element for tap sound -->
+    <audio id="tapSound" preload="auto">
+        <source src="tap-sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
