@@ -1,8 +1,6 @@
 # Nickeltap
 
 
-🎯 Current Status
-
  Phase 1: Static Prototype
  Phase 2: Make it Live + Viral
  Phase 3: Addiction Layer
