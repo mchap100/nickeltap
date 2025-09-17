@@ -79,31 +79,6 @@ script.js
 chad-nickel.png
 
 tap-sound.mp3
-Phase 2 adds:
-
-server.js
-
-Replit DB entries
-
-Phase 1:
-
-Create new Repl with HTML/CSS/JS template
-
-Add index.html, style.css, script.js, chad-nickel.png, tap-sound.mp3
-
-Run project and confirm layout and tap feel
-
-Phase 2:
-
-npm init -y
-
-npm install express
-
-Add server.js with endpoints
-
-Update Replit run command to "node server.js"
-
-Frontend polls GET /api/counts every 2s and sends batched taps to POST /api/tapBatch
 
 TESTING CHECKLIST
 
