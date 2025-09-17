@@ -28,11 +28,6 @@ Glow Love: #FF008033
 Glow Hate: #00D9FF33
 Footer Text: #F8F8FF4D
 
-SUCCESS METRICS
-Phase 1 (Month 1): 10k taps, 1k unique visitors, 50 percent return rate, 30+ taps per session
-Phase 2 (Months 2–3): 100k taps, 10k unique visitors, 50+ taps per session, 10 percent reach Legendary
-Phase 3 (Month 6): 1M taps, 50k unique visitors, 20 percent share rate, Teams stay within 60/40 split
-
 USER JOURNEY
 First visit:
 
@@ -72,54 +67,6 @@ Counters: global server totals updated every 2s, personal session counter, lifet
 
 Share: Web Share API on mobile, clipboard fallback on desktop.
 
-TECHNICAL ARCHITECTURE
-Frontend:
-
-Vanilla HTML, CSS, JS
-
-Single file index.html under 50KB
-
-PWA ready with manifest and service worker
-
-localStorage for team, stats, and Legendary status
-
-Backend:
-
-Node.js with Express
-
-API endpoints:
-GET /api/counts
-POST /api/tap (or batched /api/tapBatch)
-
-Database: Replit DB key-value store
-
-Upgrade path to Postgres later if needed
-
-Data model (Replit DB keys):
-total:love -> count
-total:hate -> count
-ratelimit:{ip}:{minute} -> tap count
-
-Rate limiting: 300 taps per minute per IP, silent failure (UI still responsive)
-
-PERFORMANCE TARGETS
-First paint under 300ms
-Interactive under 500ms
-Tap response under 16ms
-Bundle size under 50KB
-No frameworks, no dependencies, no bloat
-
-PRIVACY AND SECURITY
-We track: team totals only
-We do not track: personal data, analytics, cookies, accounts, or emails
-Security: HTTPS only, rate limiting, sanitization, no user data surface
-
-DEVELOPMENT PHASES
-Phase 1: Static Prototype (local counters, button feel)
-Phase 2: Live (backend, Replit DB, global counts, rate limiting)
-Phase 3: Addiction Layer (escalating effects, rewards, Legendary status, sound, local records)
-Phase 4: Polish (sharing, PWA install, performance optimization, cross-browser/device testing, launch)
-
 PROJECT STRUCTURE
 nickeltap/
 
@@ -138,7 +85,6 @@ server.js
 
 Replit DB entries
 
-GETTING STARTED (REPLIT)
 Phase 1:
 
 Create new Repl with HTML/CSS/JS template
@@ -172,13 +118,6 @@ Multiple browser tabs sync with same global totals
 Mobile works: no scroll/zoom, haptics, sound unlocks on first tap
 
 Share button works on mobile and desktop
-
-RISK MITIGATION
-Bot abuse: limited to 300/min/IP
-Server overload: Replit autoscaling, upgrade to Postgres when needed
-Team imbalance: UI messaging to encourage competition
-Retention risk: Legendary status, personal bests, prestige loop
-Mobile bugs: test early on physical devices
 
 LICENSE
 Proprietary. All rights reserved.
