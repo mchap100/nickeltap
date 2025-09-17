@@ -1,99 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>NICKELTAP - Settle the Nickelback Debate</title>
-    <meta name="description" content="A single-screen progressive web app that settles the Nickelback debate by tapping. Pick Team Love or Team Hate and tap the Chad Nickel button!">
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#1E1E2E">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="NICKELTAP">
-    
-    <!-- Prevent zooming and scrolling -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    
-    <link rel="stylesheet" href="style.css">
+<!-- This makes it work on phones -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- This connects your CSS file -->
+<link rel="stylesheet" href="style.css">
+
+<!-- This sets the page title -->
+<title>Nickeltap</title>
 </head>
 <body>
-    <div class="app-container">
-        <!-- Header with sound toggle -->
-        <header class="header">
-            <button id="soundToggle" class="sound-toggle" aria-label="Toggle sound">
-                <span class="sound-icon">🔊</span>
-            </button>
-        </header>
+<!-- Everything goes in this container -->
+<div id="app">
 
-        <!-- Main content area -->
-        <main class="main-content">
-            <!-- Global counters -->
-            <div class="global-counters">
-                <div class="counter love-counter">
-                    <div class="counter-label">Team Love</div>
-                    <div class="counter-value" id="globalLoveCount">0</div>
-                </div>
-                <div class="counter hate-counter">
-                    <div class="counter-label">Team Hate</div>
-                    <div class="counter-value" id="globalHateCount">0</div>
-                </div>
-            </div>
+<!-- Sound on/off button in corner -->
+<button id="sound-toggle" class="sound-toggle">🔊</button>
 
-            <!-- Team selection -->
-            <div class="team-selection">
-                <button id="teamLove" class="team-button love-button">Team Love</button>
-                <button id="teamHate" class="team-button hate-button">Team Hate</button>
-            </div>
+<!-- The Nickeltap logo/title -->
+<h1 class="logo">Nickeltap</h1>
 
-            <!-- Chad Nickel Button -->
-            <div class="nickel-container">
-                <button id="chadNickel" class="chad-nickel-button" disabled>
-                    <div class="nickel-inner">
-                        <span class="chad-text">CHAD</span>
-                    </div>
-                </button>
-                <div class="tap-effects" id="tapEffects"></div>
-            </div>
+<!-- Team scores -->
+<div class="global-counts">
+<div class="team-score">
+<div class="team-name love">Team Love</div>
+<div class="team-total" id="love-count">0</div>
+</div>
+<div class="versus">vs</div>
+<div class="team-score">
+<div class="team-name hate">Team Hate</div>
+<div class="team-total" id="hate-count">0</div>
+</div>
+</div>
 
-            <!-- Personal stats -->
-            <div class="personal-stats">
-                <div class="stat">
-                    <div class="stat-label">Session</div>
-                    <div class="stat-value" id="sessionCount">0</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">Lifetime</div>
-                    <div class="stat-value" id="lifetimeCount">0</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">Best Streak</div>
-                    <div class="stat-value" id="bestStreak">0</div>
-                </div>
-            </div>
+<!-- The call to action -->
+<p class="tagline">Tap to settle the debate</p>
 
-            <!-- Current streak and stage messages -->
-            <div id="streakMessage" class="streak-message"></div>
-            <div id="stageMessage" class="stage-message"></div>
-        </main>
+<!-- Team selection buttons -->
+<div class="team-selector">
+<button class="team-btn" id="team-love" data-team="love">Love</button>
+<button class="team-btn" id="team-hate" data-team="hate">Hate</button>
+</div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <button id="shareButton" class="footer-link">Share</button>
-            <span class="footer-separator">•</span>
-            <a href="#" class="footer-link">Terms</a>
-            <span class="footer-separator">•</span>
-            <a href="#" class="footer-link">Privacy</a>
-            <span class="footer-separator">•</span>
-            <a href="#" class="footer-link">Help</a>
-        </footer>
-    </div>
+<!-- The main button - THE STAR -->
+<button id="nickel" class="nickel-button">
+<img src="chad-nickel.png" alt="Chad Nickel" class="nickel-image">
+</button>
 
-    <!-- Audio element for tap sound -->
-    <audio id="tapSound" preload="auto">
-        <source src="tap-sound.mp3" type="audio/mpeg">
-    </audio>
+<!-- Personal tap counter -->
+<div class="tap-counter">
+<span class="counter-label">Your taps:</span>
+<span class="counter-number" id="tap-count">0</span>
+</div>
 
-    <script src="script.js"></script>
+<!-- Streak counter (hidden at start) -->
+<div class="streak-container" id="streak-container" style="display: none;">
+<div class="streak-label">STREAK</div>
+<div class="streak-number" id="streak-count">0</div>
+</div>
+
+<!-- Footer links -->
+<footer class="footer">
+<a href="#" class="footer-link">Terms</a>
+<span class="footer-separator">·</span>
+<a href="#" class="footer-link">Privacy</a>
+<span class="footer-separator">·</span>
+<a href="#" class="footer-link">Help</a>
+<span class="footer-separator">·</span>
+<button id="share-btn" class="footer-link share-button">Share</button>
+</footer>
+
+<!-- Pre-create 10 floating +1 elements for performance -->
+<div class="plus-one" id="plus-0">+1</div>
+<div class="plus-one" id="plus-1">+1</div>
+<div class="plus-one" id="plus-2">+1</div>
+<div class="plus-one" id="plus-3">+1</div>
+<div class="plus-one" id="plus-4">+1</div>
+<div class="plus-one" id="plus-5">+1</div>
+<div class="plus-one" id="plus-6">+1</div>
+<div class="plus-one" id="plus-7">+1</div>
+<div class="plus-one" id="plus-8">+1</div>
+<div class="plus-one" id="plus-9">+1</div>
+
+</div>
+
+<!-- This connects your JavaScript file -->
+<script src="script.js"></script>
 </body>
 </html>
