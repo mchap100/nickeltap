@@ -1,1 +1,77 @@
+/* Reset all default spacing */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 
+/* Prevent ANY scrolling or zooming */
+html, body {
+width: 100%;
+height: 100%;
+overflow: hidden;
+position: fixed;
+overscroll-behavior: none;
+-webkit-user-select: none;
+user-select: none;
+}
+
+/* Main container - the purple background */
+#app {
+width: 100%;
+height: 100vh;
+height: 100dvh; /* Dynamic viewport height for mobile */
+background: #1E1E2E;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: relative;
+padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+touch-action: none; /* Prevents all scrolling on mobile */
+}
+
+/* Sound toggle button */
+.sound-toggle {
+position: absolute;
+top: 20px;
+right: 20px;
+background: none;
+border: none;
+font-size: 24px;
+cursor: pointer;
+z-index: 100;
+padding: 10px;
+}
+
+/* Nickeltap logo */
+.logo {
+color: #F8F8FF;
+font-size: 32px;
+font-weight: bold;
+margin-bottom: 30px;
+letter-spacing: -0.5px;
+}
+
+/* Global team scores */
+.global-counts {
+display: flex;
+align-items: center;
+gap: 30px;
+margin-bottom: 20px;
+}
+
+.team-score {
+text-align: center;
+}
+
+.team-name {
+font-size: 14px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 5px;
+}
+
+/* Continue with rest of CSS... */
